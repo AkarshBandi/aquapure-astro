@@ -1,37 +1,18 @@
 ---
-import '../styles/global.css';
-import Header from '../components/Header.astro';
-import Hero from '../components/Hero.astro';
-import KnowWater from '../components/KnowWater.astro';
-import SystemTimeline from '../components/SystemTimeline.astro';
-import WhyUs from '../components/WhyUs.astro';
-import CtaSection from '../components/CtaSection.astro';
-import Footer from '../components/Footer.astro';
-import SmoothScroll from '../islands/SmoothScroll.tsx';
-import Reveal from '../islands/Reveal.tsx';
----
+import Base from '../layouts/Base.astro';
+import TinaIsland from '@tinacms/astro/TinaIsland.astro';
+import PageBody from '../components/islands/PageBody.astro';
+import { getConfig, getPage } from '../lib/tina/data';
+import { islands } from '../lib/tina/islands';
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>AquaPure — Clean water for the whole home | Scottsdale, AZ</title>
-    <meta name="description" content="Family-owned Scottsdale water treatment since the mid-2000s. Custom whole-home filtration for Arizona hard water. Free on-site water test." />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet" />
-  </head>
-  <body>
-    <SmoothScroll client:load />
-    <Reveal client:visible />
-    <Header />
-    <main>
-      <Hero />
-      <KnowWater />
-      <SystemTimeline />
-      <WhyUs />
-      <CtaSection />
-    </main>
-    <Footer />
-  </body>
-</html>
+const slug = 'home';
+const page = await getPage(slug);
+const data = page.data?.page;
+if (!data) return new Response('Not Found', { status: 404 });
+const config = (await getConfig()).data?.config ?? null;
+---
+<Base title={data.seoTitle || (config as any)?.seo?.title || 'Home'} description={(config as any)?.seo?.description}>
+  <TinaIsland name="page" wrapper={islands.page.wrapper} params={{ slug }} primary>
+    <PageBody data={data} />
+  </TinaIsland>
+</Base>
