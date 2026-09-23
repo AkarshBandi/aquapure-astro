@@ -1,0 +1,18 @@
+---
+import { tinaField } from '@tinacms/astro/tina-field';
+const { data } = Astro.props as { data: any };
+const bg = data?.background ?? 'https://images.pexels.com/photos/416528/pexels-photo-416528.jpeg?auto=compress&cs=tinysrgb&w=1920';
+---
+<section class="hero-section" style={`background-image: linear-gradient(var(--color-overlay), var(--color-overlay)), url('${bg}')`} data-tina-field={tinaField(data, 'background')}>
+  <div class="hero-container">
+    <div class="hero-content">
+      <p class="hero-eyebrow" data-tina-field={tinaField(data, 'eyebrow')}>{data?.eyebrow ?? 'Whole-home water treatment'}</p>
+      <h1 class="hero-title" data-tina-field={tinaField(data, 'title')}>{data?.title ?? 'Clean water for the whole home'}</h1>
+      <p class="hero-description" data-tina-field={tinaField(data, 'description')}>{data?.description}</p>
+      <div class="hero-actions">
+        {data?.primaryLabel && <a href={data?.primaryLink ?? '#test'} class="btn btn-primary" data-tina-field={tinaField(data, 'primaryLabel')}>{data.primaryLabel}</a>}
+        {data?.secondaryLabel && <a href={data?.secondaryLink ?? '#rates'} class="btn btn-secondary" style="color: var(--color-white); border-color: var(--color-white);" data-tina-field={tinaField(data, 'secondaryLabel')}>{data.secondaryLabel}</a>}
+      </div>
+    </div>
+  </div>
+</section>

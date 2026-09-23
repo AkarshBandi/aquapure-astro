@@ -1,0 +1,18 @@
+---
+import CtaForm from '../islands/CtaForm.tsx';
+---
+<section class="cta-section" id="test">
+  <div class="container cta-wrap">
+    <div class="cta-text">
+      <h2>Know what’s in your water.</h2>
+      <p>Don’t guess with your family’s water and pipes. Book a free on-site test — we check it at your tap and explain the results plainly.</p>
+    </div>
+    <CtaForm
+      id="cta-main"
+      placeholder="Enter your email address"
+      buttonLabel="Submit"
+      disclaimer="By submitting, you agree to receive your test results by email. No spam, unsubscribe anytime."
+      client:idle
+    />
+  </div>
+</section>

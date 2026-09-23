@@ -1,0 +1,12 @@
+---
+import { tinaField } from '@tinacms/astro/tina-field';
+const { data } = Astro.props as { data: any };
+---
+<section class="block-cta" style="padding:72px 24px;text-align:center;max-width:720px;margin:0 auto">
+  {data?.headline && <h2 style="font-size:clamp(1.8rem,5vw,2.6rem)" data-tina-field={tinaField(data, 'headline')}>{data.headline}</h2>}
+  {data?.text && <p style="opacity:0.7;margin:12px auto;max-width:36rem;line-height:1.6" data-tina-field={tinaField(data, 'text')}>{data.text}</p>}
+  <div style="display:flex;gap:12px;justify-content:center;margin-top:24px;flex-wrap:wrap">
+    {data?.primaryLabel && <a href={data.primaryLink ?? '/'} style="padding:12px 20px;border:1px solid currentColor;text-decoration:none;font-size:13px;letter-spacing:0.08em;text-transform:uppercase" data-tina-field={tinaField(data, 'primaryLabel')}>{data.primaryLabel}</a>}
+    {data?.secondaryLabel && <a href={data.secondaryLink ?? '/'} style="opacity:0.7;padding:12px 20px;text-decoration:none;font-size:13px" data-tina-field={tinaField(data, 'secondaryLabel')}>{data.secondaryLabel}</a>}
+  </div>
+</section>

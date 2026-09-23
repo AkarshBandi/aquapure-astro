@@ -1,0 +1,37 @@
+---
+import ProcessTimeline from '../islands/ProcessTimeline.tsx';
+const stages = [
+  {
+    title: 'Sediment & carbon pre-filter',
+    text: 'Captures sand, rust and chlorine before they reach your plumbing. Your water starts visibly clearer.',
+    image: 'https://images.pexels.com/photos/2280571/pexels-photo-2280571.jpeg?auto=compress&cs=tinysrgb&w=800',
+    fact: 'Hardness 15–25 gpg → Arizona well water',
+  },
+  {
+    title: 'Ion-exchange softening',
+    text: 'Custom resin swaps calcium and magnesium for sodium. No scale, no chalky residue, heaters last longer.',
+    image: 'https://images.pexels.com/photos/416528/pexels-photo-416528.jpeg?auto=compress&cs=tinysrgb&w=800',
+    fact: 'Whole-house — every tap + appliance',
+  },
+  {
+    title: 'Carbon polishing pass',
+    text: 'Final activated-carbon pass strips odors and gives crisp, bottle-quality taste at the kitchen tap.',
+    image: 'https://images.pexels.com/photos/1382726/pexels-photo-1382726.jpeg?auto=compress&cs=tinysrgb&w=800',
+    fact: 'Family-owned Scottsdale — ~20 years',
+  },
+];
+---
+<section class="system-section" id="systems">
+  <div class="container">
+    <div class="system-header">
+      <p class="hero-eyebrow" style="color: var(--color-muted);">Process</p>
+      <h2>Whole House Water System</h2>
+      <p>We don’t sell generic boxes off a shelf. We engineer a targeted system scaled for your home’s exact water chemistry — custom-built for Scottsdale’s hard water, feeding every faucet.</p>
+      <div class="system-header-actions">
+        <button class="btn btn-secondary">Consultation</button>
+        <a href="#test" style="font-weight:600; color:var(--color-dark); font-size:0.95rem;">More ›</a>
+      </div>
+    </div>
+    <ProcessTimeline stages={stages} client:visible />
+  </div>
+</section>

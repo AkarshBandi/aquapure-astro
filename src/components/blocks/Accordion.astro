@@ -1,0 +1,21 @@
+---
+import { tinaField } from '@tinacms/astro/tina-field';
+import TinaMarkdown from '@tinacms/astro/TinaMarkdown.astro';
+const { data } = Astro.props as { data: any };
+const items = (data?.items ?? []).filter(Boolean);
+---
+<section class="block-accordion" style="max-width:720px;margin:0 auto;padding:48px 24px">
+  {data?.headline && <h2 style="font-size:clamp(1.5rem,4vw,2rem);margin-bottom:20px" data-tina-field={tinaField(data, 'headline')}>{data.headline}</h2>}
+  <div style="display:grid;gap:12px" data-tina-field={tinaField(data, 'items')}>
+    {items.map((item: any) => (
+      <details style="border:1px solid #e5e5e5;padding:16px">
+        <summary style="cursor:pointer;font-weight:600">{item?.title ?? 'Untitled'}</summary>
+        {item?.content && (
+          <div style="margin-top:12px;line-height:1.7;opacity:0.8">
+            <TinaMarkdown content={item.content} />
+          </div>
+        )}
+      </details>
+    ))}
+  </div>
+</section>

@@ -1,0 +1,17 @@
+---
+import { tinaField } from '@tinacms/astro/tina-field';
+import CtaForm from '../../islands/CtaForm.tsx';
+const { data } = Astro.props as { data: any };
+const bg = data?.background ?? 'https://images.pexels.com/photos/1382726/pexels-photo-1382726.jpeg?auto=compress&cs=tinysrgb&w=1920';
+---
+<section class="cta-section" style={`background: linear-gradient(rgba(0,119,182,0.82), rgba(0,119,182,0.84)), url('${bg}') center/cover no-repeat`} data-tina-field={tinaField(data, 'background')}>
+  <div class="container cta-wrap">
+    <div class="cta-text">
+      <h2 data-tina-field={tinaField(data, 'heading')}>{data?.heading ?? 'Know what’s in your water.'}</h2>
+      <p data-tina-field={tinaField(data, 'text')}>{data?.text}</p>
+    </div>
+    <div style="min-width:320px; max-width:400px; width:100%;">
+      <CtaForm id="cta-water" placeholder={data?.placeholder ?? 'Enter your email address'} buttonLabel={data?.buttonLabel ?? 'Submit'} disclaimer={data?.disclaimer} client:idle />
+    </div>
+  </div>
+</section>

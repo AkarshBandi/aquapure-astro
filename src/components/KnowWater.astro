@@ -1,0 +1,29 @@
+---
+const image = "https://images.pexels.com/photos/2280571/pexels-photo-2280571.jpeg?auto=compress&cs=tinysrgb&w=800";
+---
+<section class="know-section" id="issues">
+  <div class="container know-grid">
+    <div class="know-content">
+      <p class="hero-eyebrow" style="color: var(--color-muted);">Why it matters</p>
+      <h2>Know your water</h2>
+      <p>Hard water scales your pipes and cuts your water heater life in half. Chlorine dries your skin and you breathe it in during hot showers.</p>
+      <div class="know-sub-features">
+        <div class="sub-feature">
+          <h3>Calcium & magnesium</h3>
+          <p>Destroys appliances from the inside and leaves chalky residue on fixtures.</p>
+        </div>
+        <div class="sub-feature">
+          <h3>Municipal chlorine</h3>
+          <p>Strips natural oils from skin and degrades indoor air quality.</p>
+        </div>
+      </div>
+      <div style="display:flex; gap:12px; align-items:center; flex-wrap:wrap;">
+        <a href="#systems" class="btn btn-secondary">Learn how it works</a>
+        <a href="#systems" class="btn btn-secondary" style="background: var(--color-accent); color:#fff; border-color: var(--color-accent);">More <span aria-hidden="true">›</span></a>
+      </div>
+    </div>
+    <div class="know-visual">
+      <img src={image} alt="Hard water scale on faucet" width="640" height="440" loading="lazy" style="width:100%; height:440px; object-fit:cover; border-radius:4px; border:1px solid var(--color-border);" />
+    </div>
+  </div>
+</section>

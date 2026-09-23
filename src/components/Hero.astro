@@ -1,0 +1,27 @@
+---
+interface Props {
+  eyebrow?: string;
+  title?: string;
+  description?: string;
+  image?: string;
+}
+const {
+  eyebrow = 'Whole-home water treatment',
+  title = 'Clean water for the whole home',
+  description = 'We are a family-owned Scottsdale company engineering custom filtration for Arizona\u2019s hard water. Protect your family and your pipes.',
+  image = 'https://images.pexels.com/photos/416528/pexels-photo-416528.jpeg?auto=compress&cs=tinysrgb&w=1920',
+} = Astro.props;
+---
+<section class="hero-section" style={`background-image: linear-gradient(var(--color-overlay), var(--color-overlay)), url('${image}')`}>
+  <div class="hero-container">
+    <div class="hero-content">
+      <p class="hero-eyebrow">{eyebrow}</p>
+      <h1 class="hero-title">{title}</h1>
+      <p class="hero-description">{description}</p>
+      <div class="hero-actions">
+        <a href="#test" class="btn btn-primary">Free consultation</a>
+        <a href="#rates" class="btn btn-secondary" style="color: var(--color-white); border-color: var(--color-white);">See rates</a>
+      </div>
+    </div>
+  </div>
+</section>

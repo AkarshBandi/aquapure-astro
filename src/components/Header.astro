@@ -1,0 +1,18 @@
+---
+import { tinaField } from '@tinacms/astro/tina-field';
+import type { CmsConfig } from '../lib/tina/data';
+interface Props { config?: CmsConfig | null; pathname?: string; }
+const { config, pathname = '/' } = Astro.props as any;
+const nav = (config as any)?.nav ?? [
+  { title: 'Home', link: '/' },
+  { title: 'Blog', link: '/blog/' },
+];
+---
+<header style="display:flex;align-items:center;justify-content:space-between;max-width:1120px;margin:0 auto;padding:16px 24px;border-bottom:1px solid #eee">
+  <a href="/" style="font-weight:800;letter-spacing:0.08em;text-decoration:none;color:inherit" data-tina-field={tinaField(config as any, 'seo')}>{(config as any)?.seo?.title ?? 'Site'}</a>
+  <nav style="display:flex;gap:16px" data-tina-field={tinaField(config as any, 'nav')}>
+    {nav.map((item: any) => (
+      <a href={item.link} style={`text-decoration:none;color:inherit;opacity:${pathname===item.link ? '1' : '0.6'};font-size:13px;letter-spacing:0.08em;text-transform:uppercase`}>{item.title}</a>
+    ))}
+  </nav>
+</header>

@@ -1,0 +1,26 @@
+---
+import { tinaField } from '@tinacms/astro/tina-field';
+const { data } = Astro.props as { data: any };
+---
+<section class="block-hero" style="padding:96px 0 72px;max-width:1120px;margin:0 auto;padding-left:24px;padding-right:24px">
+  <div style="display:grid;gap:32px;align-items:center;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))">
+    <div>
+      {data?.eyebrow && <p class="eyebrow" style="letter-spacing:0.2em;text-transform:uppercase;font-size:12px;opacity:0.6" data-tina-field={tinaField(data, 'eyebrow')}>{data.eyebrow}</p>}
+      <h1 style="font-size:clamp(2.4rem,6vw,3.8rem);line-height:1.05;margin:8px 0 16px" data-tina-field={tinaField(data, 'headline')}>{data?.headline ?? 'Headline goes here'}</h1>
+      {data?.tagline && <p style="font-size:18px;opacity:0.7;line-height:1.6;max-width:36rem" data-tina-field={tinaField(data, 'tagline')}>{data.tagline}</p>}
+      <div style="display:flex;gap:12px;margin-top:24px;flex-wrap:wrap">
+        {data?.primaryAction?.label && (
+          <a href={data.primaryAction.link ?? '/'} style="display:inline-block;padding:12px 20px;border:1px solid currentColor;text-decoration:none;font-size:14px;letter-spacing:0.08em;text-transform:uppercase" data-tina-field={tinaField(data.primaryAction, 'label')}>{data.primaryAction.label}</a>
+        )}
+        {data?.secondaryAction?.label && (
+          <a href={data.secondaryAction.link ?? '/'} style="display:inline-block;padding:12px 20px;opacity:0.7;text-decoration:none;font-size:14px;letter-spacing:0.08em;text-transform:uppercase" data-tina-field={tinaField(data.secondaryAction, 'label')}>{data.secondaryAction.label}</a>
+        )}
+      </div>
+    </div>
+    {data?.image?.src && (
+      <figure style="margin:0" data-tina-field={tinaField(data, 'image')}>
+        <img src={data.image.src} alt={data.image.alt ?? ''} style="width:100%;height:auto;aspect-ratio:4/3;object-fit:cover" loading="eager" />
+      </figure>
+    )}
+  </div>
+</section>

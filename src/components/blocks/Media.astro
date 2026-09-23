@@ -1,0 +1,13 @@
+---
+import { tinaField } from '@tinacms/astro/tina-field';
+const { data } = Astro.props as { data: any };
+const aspect = data?.aspect ?? '16/9';
+---
+<figure class="block-media" style="max-width:960px;margin:0 auto;padding:32px 24px" data-tina-field={tinaField(data, 'image')}>
+  {data?.image?.src ? (
+    <img src={data.image.src} alt={data.image.alt ?? ''} style={`width:100%;aspect-ratio:${aspect};object-fit:cover;display:block`} loading="lazy" />
+  ) : (
+    <div style={`width:100%;aspect-ratio:${aspect};background:#eee;display:grid;place-items:center`}>Add image</div>
+  )}
+  {data?.image?.caption && <figcaption style="margin-top:8px;font-size:13px;opacity:0.6;text-align:center">{data.image.caption}</figcaption>}
+</figure>

@@ -1,0 +1,16 @@
+---
+import { tinaField } from '@tinacms/astro/tina-field';
+const { data } = Astro.props as { data: any };
+const items = (data?.items ?? []).filter(Boolean);
+---
+<section class="block-stats" style="max-width:1120px;margin:0 auto;padding:48px 24px" data-tina-field={tinaField(data, 'items')}>
+  {data?.headline && <h2 style="font-size:clamp(1.5rem,4vw,2rem);text-align:center;margin-bottom:32px" data-tina-field={tinaField(data, 'headline')}>{data.headline}</h2>}
+  <div style="display:grid;gap:32px;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));text-align:center">
+    {items.map((item: any) => (
+      <div>
+        <div style="font-size:2.2rem;font-weight:800;line-height:1" data-tina-field={tinaField(item, 'value')}>{item?.value}</div>
+        <div style="margin-top:6px;font-size:13px;letter-spacing:0.12em;text-transform:uppercase;opacity:0.6" data-tina-field={tinaField(item, 'label')}>{item?.label}</div>
+      </div>
+    ))}
+  </div>
+</section>

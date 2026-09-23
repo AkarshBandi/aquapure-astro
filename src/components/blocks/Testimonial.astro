@@ -1,0 +1,14 @@
+---
+import { tinaField } from '@tinacms/astro/tina-field';
+const { data } = Astro.props as { data: any };
+---
+<figure class="block-testimonial" style="max-width:720px;margin:0 auto;padding:64px 24px;text-align:center">
+  {data?.quote && <blockquote style="font-size:clamp(1.2rem,3vw,1.6rem);line-height:1.5;font-style:italic" data-tina-field={tinaField(data, 'quote')}>“{data.quote}”</blockquote>}
+  <figcaption style="margin-top:16px;display:flex;gap:12px;align-items:center;justify-content:center">
+    {data?.avatar?.src && <img src={data.avatar.src} alt={data.avatar.alt ?? ''} style="width:40px;height:40px;border-radius:999px;object-fit:cover" data-tina-field={tinaField(data, 'avatar')} />}
+    <div style="text-align:left">
+      {data?.author && <div style="font-weight:600" data-tina-field={tinaField(data, 'author')}>{data.author}</div>}
+      {data?.role && <div style="font-size:12px;opacity:0.6" data-tina-field={tinaField(data, 'role')}>{data.role}</div>}
+    </div>
+  </figcaption>
+</figure>

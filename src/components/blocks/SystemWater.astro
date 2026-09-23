@@ -1,0 +1,20 @@
+---
+import { tinaField } from '@tinacms/astro/tina-field';
+import ProcessTimeline from '../../islands/ProcessTimeline.tsx';
+const { data } = Astro.props as { data: any };
+const stages = (data?.stages ?? []).filter(Boolean);
+---
+<section class="system-section" id="systems" data-tina-field={tinaField(data)}>
+  <div class="container">
+    <div class="system-header">
+      <p class="hero-eyebrow" style="color: var(--color-muted);" data-tina-field={tinaField(data, 'eyebrow')}>{data?.eyebrow ?? 'How it works'}</p>
+      <h2 data-tina-field={tinaField(data, 'heading')}>{data?.heading ?? 'Whole house water system'}</h2>
+      <p data-tina-field={tinaField(data, 'description')}>{data?.description}</p>
+      <div class="system-header-actions">
+        {data?.consultationLabel && <a href={data?.consultationLink ?? '#test'} class="btn btn-secondary" data-tina-field={tinaField(data, 'consultationLabel')}>{data.consultationLabel}</a>}
+        {data?.moreLabel && <a href={data?.moreLink ?? '#systems'} style="font-weight:600; color:var(--color-dark); font-size:0.95rem;" data-tina-field={tinaField(data, 'moreLabel')}>{data.moreLabel}</a>}
+      </div>
+    </div>
+    <ProcessTimeline stages={stages} client:visible />
+  </div>
+</section>

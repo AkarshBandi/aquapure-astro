@@ -1,0 +1,14 @@
+---
+import { tinaField } from '@tinacms/astro/tina-field';
+import TinaMarkdown from '@tinacms/astro/TinaMarkdown.astro';
+const { data } = Astro.props as { data: any };
+---
+<section class="block-richtext" style="padding:64px 0;max-width:720px;margin:0 auto;padding-left:24px;padding-right:24px">
+  {data?.eyebrow && <p style="letter-spacing:0.2em;text-transform:uppercase;font-size:11px;opacity:0.6" data-tina-field={tinaField(data, 'eyebrow')}>{data.eyebrow}</p>}
+  {data?.headline && <h2 style="font-size:clamp(1.6rem,4vw,2.2rem);margin:8px 0 16px" data-tina-field={tinaField(data, 'headline')}>{data.headline}</h2>}
+  {data?.body && (
+    <div style="line-height:1.8;opacity:0.85" data-tina-field={tinaField(data, 'body')}>
+      <TinaMarkdown content={data.body} />
+    </div>
+  )}
+</section>
