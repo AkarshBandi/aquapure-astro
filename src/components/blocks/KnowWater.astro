@@ -19,7 +19,7 @@ const subs = (data?.subFeatures ?? []).filter(Boolean);
       </div>
       <div style="display:flex; gap:12px; align-items:center; flex-wrap:wrap;">
         <a href={data?.learnLink ?? '#systems'} class="btn btn-secondary" data-tina-field={tinaField(data, 'learnLabel')}>{data?.learnLabel ?? 'Learn how it works'}</a>
-        <a href={data?.moreLink ?? '#systems'} class="btn btn-secondary" style="background: var(--color-accent); color:#fff; border-color: var(--color-accent);" data-tina-field={tinaField(data, 'moreLabel')}>{data?.moreLabel ?? 'More'} <span aria-hidden="true">›</span></a>
+        <a href={data?.moreLink ?? '#systems'} class="btn btn-secondary" style="background: var(--color-accent); color:#fff; border-color: var(--color-accent);" data-tina-field={tinaField(data, 'moreLabel')}>{data?.moreLabel ?? 'More'}</a>
       </div>
     </div>
     <div class="know-visual">
