@@ -7,7 +7,7 @@ import react from '@astrojs/react';
 
 export default defineConfig({
   site: process.env.SITE_URL || 'http://localhost:4321',
-  output: 'static',
+  output: 'server',
   adapter: cloudflare({ platformProxy: { enabled: true } }),
   integrations: [mdx(), react(), tina()],
   image: {
