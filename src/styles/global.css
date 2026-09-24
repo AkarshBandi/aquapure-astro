@@ -426,30 +426,14 @@
         /* --- 6. FREE WATER TEST --- */
         .cta-section {
             position: relative;
-            background: transparent;
-            background-color: transparent;
-            color: var(--color-white);
-            padding: 0;
-            overflow: visible;
-            border: none;
-            outline: none;
-            box-shadow: none;
-        }
-        .cta-inner {
-            position: relative;
-            background: linear-gradient(rgba(0,119,182,0.82), rgba(0,119,182,0.84)), url('https://images.pexels.com/photos/1001682/pexels-photo-1001682.jpeg?auto=compress&cs=tinysrgb&w=1920') center/cover no-repeat;
+            background: linear-gradient(rgba(0,119,182,0.78), rgba(0,119,182,0.82)), url('https://images.pexels.com/photos/1001682/pexels-photo-1001682.jpeg?auto=compress&cs=tinysrgb&w=1920') center/cover no-repeat;
             background-color: #0077B6;
-            overflow: hidden;
+            color: var(--color-white);
             padding-top: var(--space-xl);
             padding-bottom: var(--space-xl);
-            clip-path: url(#ctaWavyInnerClip);
-            -webkit-clip-path: url(#ctaWavyInnerClip);
-            border: none;
-            outline: none;
-            box-shadow: none;
+            overflow: hidden;
         }
-
-        .cta-wrap {
+.cta-wrap {
             display: flex;
             justify-content: space-between;
             align-items: center;
