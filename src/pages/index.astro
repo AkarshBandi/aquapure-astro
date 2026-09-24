@@ -7,9 +7,9 @@ import { islands } from '../lib/tina/islands';
 
 const slug = 'home';
 const page = await getPage(slug);
-const data = page.data?.page;
-if (!data) return new Response('Not Found', { status: 404 });
+const data = page.data?.page ?? null;
 const config = (await getConfig()).data?.config ?? null;
+if (!data) return new Response('Not Found', { status: 404 });
 ---
 <Base title={data.seoTitle || (config as any)?.seo?.title || 'Home'} description={(config as any)?.seo?.description}>
   <TinaIsland name="page" wrapper={islands.page.wrapper} params={{ slug }} primary>
