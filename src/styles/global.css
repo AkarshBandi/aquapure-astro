@@ -481,6 +481,19 @@
         .cta-input-group .form-input::placeholder {
             color: rgba(0,200,83,0.65);
         }
+        /* React CtaForm email input (id=cta-water-input): bright placeholder on blue */
+        .cta-email-input::placeholder {
+            color: rgba(255,255,255,.85);
+            opacity: 1;
+        }
+        .cta-email-input::-moz-placeholder {
+            color: rgba(255,255,255,.85);
+            opacity: 1;
+        }
+        .cta-email-input:focus {
+            outline: 2px solid #fff;
+            outline-offset: 2px;
+        }
         .cta-input-group .form-input:focus {
             outline: 2px solid var(--color-accent);
             outline-offset: 2px;

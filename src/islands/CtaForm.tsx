@@ -44,12 +44,13 @@ export default function CtaForm({ id, placeholder = 'Enter your email address', 
           aria-label="Email address"
           aria-invalid={!!error}
           aria-describedby={error ? `${id}-error` : undefined}
+          className="cta-email-input"
           style={{
             flex: 1,
             padding: '12px 14px',
             borderRadius: 4,
-            border: error ? '1px solid #fecaca' : '1px solid rgba(255,255,255,.2)',
-            background: 'rgba(255,255,255,.1)',
+            border: error ? '1px solid #fecaca' : '1px solid rgba(255,255,255,.45)',
+            background: 'rgba(255,255,255,.18)',
             color: '#fff',
             fontFamily: 'Inter, sans-serif',
           }}
