@@ -2,7 +2,7 @@ import type { Template } from 'tinacms';
 
 export const whyWaterBlockSchema: Template = {
   name: 'whyWater',
-  label: 'Why AquaPure',
+  label: 'Why Energy One',
   fields: [
     { type: 'string', label: 'Eyebrow', name: 'eyebrow' },
     { type: 'string', label: 'Heading', name: 'heading' },
@@ -23,7 +23,7 @@ export const whyWaterBlockSchema: Template = {
   ],
   ui: {
     defaultItem: {
-      eyebrow: 'Why AquaPure',
+      eyebrow: 'Why Energy One',
       heading: 'Water treatment designed around Arizona homes.',
       paragraph: 'We’re a family business rooted in Scottsdale. For nearly two decades we’ve tested the Valley’s hardest water — well and municipal — and built systems that actually fix it.',
       stats: [

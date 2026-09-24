@@ -11,6 +11,7 @@ export const systemWaterBlockSchema: Template = {
     { type: 'string', label: 'Consultation link', name: 'consultationLink' },
     { type: 'string', label: 'More label', name: 'moreLabel' },
     { type: 'string', label: 'More link', name: 'moreLink' },
+    { name: 'headerImage', label: 'Header image', type: 'image' },
     {
       type: 'object',
       label: 'Stages',
@@ -32,6 +33,7 @@ export const systemWaterBlockSchema: Template = {
       description: 'We don’t sell generic boxes off a shelf. We engineer a targeted 6-stage system scaled for your home’s exact water chemistry.',
       consultationLabel: 'Free consultation',
       moreLabel: 'More',
+      headerImage: '/images/bottles.jpg',
       stages: [
         { title: 'Stage 1 — Sediment pre-filter', text: 'Intercepts sand, silt and visible particles so downstream stages stay clean.', fact: 'Step 1 — protects' },
         { title: 'Stage 2 — Ion-exchange softening', text: 'Resin exchanges calcium & magnesium — removes hardness (Arizona 15–25 gpg) without adding sodium.', fact: 'Step 2 — softens' },

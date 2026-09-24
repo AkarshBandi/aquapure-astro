@@ -12,7 +12,7 @@ const nav = (config as any)?.nav ?? [
 ---
 <header class="site-header">
   <div class="container header-wrap">
-    <a href="#" class="logo" data-tina-field={tinaField(config as any, 'seo')} style="color: var(--color-dark);">AquaPure</a>
+    <a href="#" class="logo" data-tina-field={tinaField(config as any, 'seo')} aria-label="Energy One Water"><img src="/images/logo.jpg" alt="Energy One Water" width="240" height="65" style="height:40px; width:auto; display:block;" /></a>
     <nav class="main-nav" aria-label="Primary" data-tina-field={tinaField(config as any, 'nav')}>
       {nav.map((item: any) => (
         <a href={item.link} class="nav-link" style={pathname===item.link ? 'color: var(--color-accent);' : ''}>{item.title}</a>

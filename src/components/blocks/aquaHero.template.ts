@@ -2,7 +2,7 @@ import type { Template } from 'tinacms';
 
 export const aquaHeroBlockSchema: Template = {
   name: 'aquaHero',
-  label: 'Hero — AquaPure',
+  label: 'Hero — Energy One',
   fields: [
     { type: 'string', label: 'Eyebrow', name: 'eyebrow' },
     { type: 'string', label: 'Title', name: 'title', required: true },
