@@ -426,11 +426,13 @@
         /* --- 6. FREE WATER TEST --- */
         .cta-section {
             position: relative;
-            background: linear-gradient(rgba(0,119,182,0.78), rgba(0,119,182,0.82)), url('https://images.pexels.com/photos/1382726/pexels-photo-1382726.jpeg?auto=compress&cs=tinysrgb&w=1920') center/cover no-repeat;
-            background-color: #0077B6;
+            background: #F0F8FF;
             color: var(--color-white);
-            padding-top: var(--space-xl);
-            padding-bottom: var(--space-xl);
+            padding: 0;
+            overflow: visible;
+        }
+        .cta-wavy {
+            position: relative;
             overflow: hidden;
         }
 
