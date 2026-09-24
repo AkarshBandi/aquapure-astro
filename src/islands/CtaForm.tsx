@@ -25,7 +25,7 @@ export default function CtaForm({ id, placeholder = 'Enter your email address', 
 
   if (sent) {
     return (
-      <div role="status" style={{ padding: '16px', background: '#fff', border: '1px solid var(--color-border)', borderRadius: 4, color: 'var(--color-dark)' }}>
+      <div role="status" style={{ padding: '16px', background: 'transparent', border: '1px solid var(--color-border)', borderRadius: 4, color: 'var(--color-dark)' }}>
         <strong style={{ display: 'block', marginBottom: 4 }}>You’re on the list.</strong>
         <span style={{ opacity: 0.8, fontSize: '0.9rem', color: 'var(--color-muted)' }}>We’ll send your free water test confirmation shortly — check your inbox.</span>
       </div>
@@ -49,7 +49,7 @@ export default function CtaForm({ id, placeholder = 'Enter your email address', 
             padding: '12px 14px',
             borderRadius: 4,
             border: error ? '1px solid #fecaca' : '1px solid var(--color-border)',
-            background: '#fff',
+            background: 'transparent',
             color: 'var(--color-dark)',
             fontFamily: 'Inter, sans-serif',
           }}
@@ -59,9 +59,9 @@ export default function CtaForm({ id, placeholder = 'Enter your email address', 
         </button>
       </div>
       {error ? (
-        <span id={`${id}-error`} role="alert" style={{ color: '#e11d48', fontSize: '0.8rem' }}>{error}</span>
+        <span id={`${id}-error`} role="alert" style={{ color: '#fecaca', fontSize: '0.8rem' }}>{error}</span>
       ) : disclaimer ? (
-        <span style={{ color: 'var(--color-muted)', fontSize: '0.75rem' }}>{disclaimer}</span>
+        <span style={{ color: 'rgba(255,255,255,.5)', fontSize: '0.75rem' }}>{disclaimer}</span>
       ) : null}
     </form>
   );
