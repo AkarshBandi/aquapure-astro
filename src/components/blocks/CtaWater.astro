@@ -4,28 +4,26 @@ import CtaForm from '../../islands/CtaForm.tsx';
 const { data } = Astro.props as { data: any };
 const bg = data?.background ?? 'https://images.pexels.com/photos/1001682/pexels-photo-1001682.jpeg?auto=compress&cs=tinysrgb&w=1920';
 ---
-<section class="cta-section" data-tina-field={tinaField(data, 'background')}>
-  <svg width="0" height="0" aria-hidden="true" style="position:absolute"><defs><clipPath id="ctaWavyInnerClip" clipPathUnits="objectBoundingBox"><path d="M0,0.09 C0.04,0.04 0.083,0.14 0.125,0.09 S0.208,0.04 0.25,0.09 S0.333,0.14 0.375,0.09 S0.458,0.04 0.5,0.09 S0.583,0.14 0.625,0.09 S0.708,0.04 0.75,0.09 S0.833,0.14 0.875,0.09 S0.958,0.04 1,0.09 L1,0.91 C0.958,0.96 0.917,0.86 0.875,0.91 S0.792,0.96 0.75,0.91 S0.667,0.86 0.625,0.91 S0.542,0.96 0.5,0.91 S0.417,0.86 0.375,0.91 S0.292,0.96 0.25,0.91 S0.167,0.86 0.125,0.91 S0.042,0.96 0,0.91 Z" /></clipPath></defs></svg>
-  <div class="cta-inner" style={`background: linear-gradient(rgba(0,119,182,0.82), rgba(0,119,182,0.84)), url('${bg}') center/cover no-repeat`}>
+<section class="cta-section" style={`background: linear-gradient(rgba(0,119,182,0.82), rgba(0,119,182,0.84)), url('${bg}') center/cover no-repeat`} data-tina-field={tinaField(data, 'background')}>
   <div class="wave-divider wave-divider--top wave-bob" aria-hidden="true">
     <svg viewBox="0 0 1440 48" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
       <g class="wave-layer wave-1"><path d="M0 24 C 60 12, 120 36, 180 24 S 300 12, 360 24 S 480 36, 540 24 S 660 12, 720 24 S 840 36, 900 24 S 1020 12,1080 24 S1200 36,1260 24 S1380 12,1440 24 L1440 48 L0 48 Z" fill="#0284C7"/><path d="M1440 24 C1500 12,1560 36,1620 24 S1740 12,1800 24 S1920 36,1980 24 S2100 12,2160 24 S2280 36,2340 24 S2460 12,2520 24 S2640 36,2700 24 S2820 12,2880 24 L2880 48 L1440 48 Z" fill="#0284C7"/></g>
       <g class="wave-layer wave-2"><path d="M0 28 C 40 18, 80 38, 120 28 S200 18,240 28 S320 38,360 28 S440 18,480 28 S560 38,600 28 S680 18,720 28 S800 42,840 28 S920 18,960 28 S1040 38,1080 28 S1160 18,1200 28 S1280 38,1320 28 S1400 18,1440 28 L1440 48 L0 48 Z" fill="#0077B6"/><path d="M1440 28 C1480 18,1520 38,1560 28 S1640 18,1680 28 S1760 38,1800 28 S1880 18,1920 28 S2000 38,2040 28 S2120 18,2160 28 S2240 38,2280 28 S2360 18,2400 28 S2480 38,2520 28 S2600 18,2640 28 S2720 38,2760 28 S2840 18,2880 28 L2880 48 L1440 48 Z" fill="#0077B6"/></g>
     </svg>
   </div>
-    <div class="container cta-wrap">
-      <div class="cta-text">
-        <h2 data-tina-field={tinaField(data, 'heading')}>{data?.heading ?? 'Know what’s in your water.'}</h2>
-        <p data-tina-field={tinaField(data, 'text')}>{data?.text}</p>
-      </div>
-      <div style="min-width:320px; max-width:400px; width:100%;">
-        <CtaForm id="cta-water" placeholder={data?.placeholder ?? 'Enter your email address'} buttonLabel={data?.buttonLabel ?? 'Submit'} disclaimer={data?.disclaimer} client:idle />
-      </div>
+  <div class="container cta-wrap">
+    <div class="cta-text">
+      <h2 data-tina-field={tinaField(data, 'heading')}>{data?.heading ?? 'Know what’s in your water.'}</h2>
+      <p data-tina-field={tinaField(data, 'text')}>{data?.text}</p>
     </div>
-    <div class="wave-divider wave-bob" aria-hidden="true">
-      <svg viewBox="0 0 1440 48" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-        <g class="wave-layer wave-1"><path d="M0 24 C 60 12, 120 36, 180 24 S 300 12, 360 24 S 480 36, 540 24 S 660 12, 720 24 S 840 36, 900 24 S 1020 12,1080 24 S1200 36,1260 24 S1380 12,1440 24 L1440 48 L0 48 Z" fill="#BAE6FD"/><path d="M1440 24 C1500 12,1560 36,1620 24 S1740 12,1800 24 S1920 36,1980 24 S2100 12,2160 24 S2280 36,2340 24 S2460 12,2520 24 S2640 36,2700 24 S2820 12,2880 24 L2880 48 L1440 48 Z" fill="#BAE6FD"/></g>
-        <g class="wave-layer wave-2"><path d="M0 28 C 40 18, 80 38, 120 28 S200 18,240 28 S320 38,360 28 S440 18,480 28 S560 38,600 28 S680 18,720 28 S800 42,840 28 S920 18,960 28 S1040 38,1080 28 S1160 18,1200 28 S1280 38,1320 28 S1400 18,1440 28 L1440 48 L0 48 Z" fill="#0077B6"/><path d="M1440 28 C1480 18,1520 38,1560 28 S1640 18,1680 28 S1760 38,1800 28 S1880 18,1920 28 S2000 38,2040 28 S2120 18,2160 28 S2240 38,2280 28 S2360 18,2400 28 S2480 38,2520 28 S2600 18,2640 28 S2720 38,2760 28 S2840 18,2880 28 L2880 48 L1440 48 Z" fill="#0077B6"/></g>
-      </svg>
+    <div style="min-width:320px; max-width:400px; width:100%;">
+      <CtaForm id="cta-water" placeholder={data?.placeholder ?? 'Enter your email address'} buttonLabel={data?.buttonLabel ?? 'Submit'} disclaimer={data?.disclaimer} client:idle />
     </div>
+  </div>
+  <div class="wave-divider wave-bob" aria-hidden="true">
+    <svg viewBox="0 0 1440 48" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <g class="wave-layer wave-1"><path d="M0 24 C 60 12, 120 36, 180 24 S 300 12, 360 24 S 480 36, 540 24 S 660 12, 720 24 S 840 36, 900 24 S 1020 12,1080 24 S1200 36,1260 24 S1380 12,1440 24 L1440 48 L0 48 Z" fill="#BAE6FD"/><path d="M1440 24 C1500 12,1560 36,1620 24 S1740 12,1800 24 S1920 36,1980 24 S2100 12,2160 24 S2280 36,2340 24 S2460 12,2520 24 S2640 36,2700 24 S2820 12,2880 24 L2880 48 L1440 48 Z" fill="#BAE6FD"/></g>
+      <g class="wave-layer wave-2"><path d="M0 28 C 40 18, 80 38, 120 28 S200 18,240 28 S320 38,360 28 S440 18,480 28 S560 38,600 28 S680 18,720 28 S800 42,840 28 S920 18,960 28 S1040 38,1080 28 S1160 18,1200 28 S1280 38,1320 28 S1400 18,1440 28 L1440 48 L0 48 Z" fill="#0077B6"/><path d="M1440 28 C1480 18,1520 38,1560 28 S1640 18,1680 28 S1760 38,1800 28 S1880 18,1920 28 S2000 38,2040 28 S2120 18,2160 28 S2240 38,2280 28 S2360 18,2400 28 S2480 38,2520 28 S2600 18,2640 28 S2720 38,2760 28 S2840 18,2880 28 L2880 48 L1440 48 Z" fill="#0077B6"/></g>
+    </svg>
+  </div>
 </section>
