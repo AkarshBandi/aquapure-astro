@@ -153,11 +153,11 @@ export default function ProcessTimeline({ stages }: { stages: Stage[] }) {
                   <h3 style={{ fontSize: '1.45rem', color: '#0f172a', margin: '10px 0 10px', lineHeight: 1.25, fontFamily: 'Plus Jakarta Sans, sans-serif', fontWeight: 800 }}>{s.title}</h3>
                   <p style={{ color: '#64748b', lineHeight: 1.65, fontSize: '0.98rem' }}>{s.text}</p>
                 </div>
-                <img src={s.image} alt={s.title} width={420} height={280} loading="lazy" style={{ width: '100%', height: 280, objectFit: 'cover', borderRadius: 4, border: '1px solid #e2e8f0' }} />
+                <img src={s.image} alt={s.title} width={420} height={280} loading="lazy" decoding="async" fetchPriority="low" style={{ width: '100%', height: 280, objectFit: 'cover', borderRadius: 4, border: '1px solid #e2e8f0' }} />
               </>
             ) : (
               <>
-                <img src={s.image} alt={s.title} width={420} height={280} loading="lazy" style={{ width: '100%', height: 280, objectFit: 'cover', borderRadius: 4, border: '1px solid #e2e8f0' }} />
+                <img src={s.image} alt={s.title} width={420} height={280} loading="lazy" decoding="async" fetchPriority="low" style={{ width: '100%', height: 280, objectFit: 'cover', borderRadius: 4, border: '1px solid #e2e8f0' }} />
                 <div>
                   <span style={{ fontSize: '0.7rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: '#0077B6', fontWeight: 700 }}>
                     Step {i + 1} — {s.fact ?? ''}

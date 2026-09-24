@@ -10,6 +10,7 @@ const stats = (data?.stats ?? []).filter(Boolean);
       <p class="hero-eyebrow" style="color: var(--color-muted);" data-tina-field={tinaField(data, 'eyebrow')}>{data?.eyebrow ?? 'Why AquaPure'}</p>
       <h2 data-tina-field={tinaField(data, 'heading')}>{data?.heading ?? 'Water treatment designed around Arizona homes.'}</h2>
       <p data-tina-field={tinaField(data, 'paragraph')}>{data?.paragraph}</p>
+      <p style="font-size:0.85rem; margin-bottom:16px;"><a href="https://www.epa.gov/ground-water-and-drinking-water" target="_blank" rel="noopener noreferrer external" style="color:var(--color-dark); text-decoration:underline; font-weight:500;">EPA: Learn about your drinking water →</a> <span style="color:var(--color-muted);">•</span> <a href="https://www.nsf.org/knowledge-library/topic/drinking-water-treatment" target="_blank" rel="noopener noreferrer external" style="color:var(--color-dark); text-decoration:underline; font-weight:500;">NSF: Drinking Water Treatment →</a></p>
       <div class="why-stats-stack" data-tina-field={tinaField(data, 'stats')}>
         {stats.map((s: any) => (
           <div class="why-stat-item">
@@ -24,7 +25,7 @@ const stats = (data?.stats ?? []).filter(Boolean);
     </div>
     <div class="why-visual" style="align-self: end; margin-top: 56px;">
       <div style="position:relative; border-radius:4px; overflow:hidden; border:1px solid var(--color-border);">
-        {data?.featureImage ? <img src={data.featureImage} alt={data?.heading ?? ''} width="640" height="460" loading="lazy" style="width:100%; height:460px; object-fit:cover; display:block;" data-tina-field={tinaField(data, 'featureImage')} /> : <div class="placeholder-image" style="height:460px"></div>}
+        {data?.featureImage ? <img src={data.featureImage} alt={data?.heading ?? ''} width="640" height="460" loading="lazy" decoding="async" fetchpriority="low" style="width:100%; height:460px; object-fit:cover; display:block;" data-tina-field={tinaField(data, 'featureImage')} /> : <div class="placeholder-image" style="height:460px"></div>}
         <svg viewBox="0 0 640 20" preserveAspectRatio="none" style="position:absolute; bottom:0; left:0; width:100%; height:20px; opacity:0.35;">
           <path d="M0 10 Q 80 0, 160 10 T 320 10 T 480 10 T 640 10 L 640 20 L 0 20 Z" fill="rgba(0,200,83,0.25)"/>
         </svg>

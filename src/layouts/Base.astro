@@ -22,15 +22,17 @@ const config = (await getConfig()).data?.config ?? null;
     <meta name="description" content={description} />
     <link rel="preconnect" href="https://fonts.googleapis.com"/>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=DM+Sans:wght@400;500;600;700&family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&display=swap" rel="stylesheet"/>
+    <link rel="preconnect" href="https://images.pexels.com" crossorigin/>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+    <link rel="preload" as="image" href="https://images.pexels.com/photos/416528/pexels-photo-416528.jpeg?auto=compress&cs=tinysrgb&w=1920" fetchpriority="high"/>
   </head>
   <body>
     <TinaIsland name="global" wrapper={islands.global.wrapper}><Header config={config} /></TinaIsland>
     <slot />
     <TinaIsland name="global-footer" wrapper={islands['global-footer'].wrapper}><Footer config={config} /></TinaIsland>
-    <SmoothScroll client:load />
-    <Reveal client:load />
-    <WaterParallax client:load />
+    <SmoothScroll client:idle />
+    <Reveal client:visible />
+    <WaterParallax client:idle />
     <script src="/js/tina-guard.js" is:inline></script>
   </body>
 </html>
