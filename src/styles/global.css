@@ -175,7 +175,6 @@
             background-position: center;
             padding-top: var(--space-xxl);
             padding-bottom: var(--space-xxl);
-            overflow: hidden;
         }
 
         .hero-container {
@@ -225,13 +224,9 @@
 
         /* --- 3. KNOW YOUR WATER (ORIGINAL LAYOUT RESTORED) --- */
         .know-section {
-            position: relative;
             padding-top: var(--space-xxl);
             padding-bottom: var(--space-xxl);
             background-color: var(--color-white);
-            overflow: hidden;
-            border-top: none;
-            border-bottom: none;
         }
 
         .know-grid {
@@ -429,13 +424,11 @@
 
         /* --- 6. FREE WATER TEST --- */
         .cta-section {
-            position: relative;
             background: linear-gradient(rgba(0,119,182,0.78), rgba(0,119,182,0.82)), url('https://images.pexels.com/photos/1382726/pexels-photo-1382726.jpeg?auto=compress&cs=tinysrgb&w=1920') center/cover no-repeat;
             background-color: #0077B6;
             color: var(--color-white);
             padding-top: var(--space-xl);
             padding-bottom: var(--space-xl);
-            overflow: hidden;
         }
 
         .cta-wrap {
@@ -608,101 +601,8 @@
             }
         }
     
-/* --- Motion: water parallax + waves (Tina-safe, reduced-motion off) --- */
-.hero-section, .cta-section { --parallax-y: 0px; }
-.hero-section {
-  background-position: center calc(50% + var(--parallax-y) * 0.5);
-  will-change: background-position;
-}
-.cta-section {
-  background-position: center calc(50% + var(--parallax-y) * 0.35);
-  will-change: background-position;
-}
-.wave-divider {
-  position: absolute;
-  left: 0; right: 0; bottom: -1px;
-  height: 48px;
-  overflow: hidden;
-  line-height: 0;
-  pointer-events: none;
-}
-.wave-divider--top { bottom: auto; top: -1px; transform: scaleY(-1); }
-.wave-divider svg { display: block; width: 200%; height: 48px; }
-.wave-divider .wave-layer { animation-timing-function: linear; animation-iteration-count: infinite; }
-.wave-divider .wave-1 { animation: waveDrift 7.3s linear infinite; opacity: 0.5; }
-.wave-divider .wave-2 { animation: waveDrift 11.1s linear infinite reverse; opacity: 0.28; animation-delay: -2.4s; }
-.wave-divider .wave-bob { animation: waveBob 8.7s ease-in-out infinite; }
-.wave-divider .wave-ocean-1 { animation: waveDriftOcean 9.4s linear infinite; opacity: 0.50; }
-.wave-divider .wave-ocean-2 { animation: waveDriftOcean 13.7s linear infinite reverse; opacity: 0.30; animation-delay: -3.7s; }
-.wave-divider .wave-bob-ocean { animation: waveBobOcean 9.1s ease-in-out infinite; }
-.cta-outer-wave .wave-layer { animation-timing-function: linear; animation-iteration-count: infinite; }
-.cta-outer-wave .wave-ocean-1 { animation: waveDriftOcean 9.4s linear infinite; opacity: 1; }
-.cta-outer-wave .wave-ocean-2 { animation: waveDriftOcean 13.7s linear infinite reverse; opacity: 1; animation-delay: -3.7s; }
-@keyframes waveDrift { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-@keyframes waveDriftOcean { 0% { transform: translateX(0) translateY(0); } 25% { transform: translateX(-12.5%) translateY(1px); } 50% { transform: translateX(-25%) translateY(-0.5px); } 75% { transform: translateX(-37.5%) translateY(0.8px); } 100% { transform: translateX(-50%) translateY(0); } }
-@keyframes waveBob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(4px); } }
-@keyframes waveBobOcean { 0%,100% { transform: translateY(0) rotate(0deg); } 33% { transform: translateY(3px) rotate(0.2deg); } 66% { transform: translateY(-2px) rotate(-0.15deg); } }
-.is-tina-edit .wave-divider .wave-layer,
-.is-tina-edit .wave-divider .wave-bob,
-.is-tina-edit .wave-divider .wave-bob-ocean { animation: none !important; }
-@media (prefers-reduced-motion: reduce) {
-  .hero-section, .cta-section { --parallax-y: 0px !important; background-position: center !important; }
-  .wave-divider .wave-layer, .wave-divider .wave-bob { animation: none !important; }
-  html.lenis, .lenis.lenis-smooth { scroll-behavior: auto !important; }
-}
-
-/* --- CTA full water: outer waves on cream, no straight lines --- */
-.cta-section {
-  border: none !important;
-  outline: none !important;
-  background: none !important;
-  background-color: transparent !important;
-  position: relative;
-  overflow: visible !important;
-  padding-top: calc(var(--space-xl) + 24px);
-  padding-bottom: calc(var(--space-xl) + 24px);
-  margin-top: 0;
-  margin-bottom: 0;
-}
-.cta-section .cta-water-bg {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  overflow: hidden;
-  background: linear-gradient(rgba(0,119,182,0.78), rgba(0,119,182,0.84)), url('https://images.pexels.com/photos/1382726/pexels-photo-1382726.jpeg?auto=compress&cs=tinysrgb&w=1920') center/cover no-repeat;
-  background-color: #0077B6;
-}
-.cta-section .cta-water-canvas {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  display: block;
-  z-index: 1;
-  opacity: 0.55;
-}
-.cta-section .cta-wrap {
-  position: relative;
-  z-index: 2;
-}
-.cta-outer-wave {
-  position: absolute;
-  left: 0; right: 0;
-  height: 48px;
-  overflow: hidden;
-  line-height: 0;
-  pointer-events: none;
-  z-index: 3;
-}
-.cta-outer-wave--top { top: -47px; transform: none; }
-.cta-outer-wave--bottom { bottom: -47px; transform: none; }
-.cta-outer-wave svg { display: block; width: 200%; height: 48px; }
-.site-footer { border-top: none !important; }
-.cta-section + div[data-tina-island] .site-footer { border-top: none !important; }
-
 /* --- 60/30/10 overrides --- */
 body{ background-color: #F0F8FF; }
-.know-section, .system-section, .why-section{ background-color: #F0F8FF; }
-.site-footer{ background-color: #F0F8FF; border-top: none !important; }
+.know-section, .system-section, .why-section, .site-footer{ background-color: #F0F8FF; }
 .site-header{ background-color: #F0F8FF; }
 .hero-section{ background-color: #0077B6; }
