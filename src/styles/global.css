@@ -640,6 +640,8 @@
 .wave-divider .wave-layer { animation-timing-function: linear; animation-iteration-count: infinite; }
 .wave-divider .wave-1 { animation: waveDrift 7s linear infinite; opacity: 0.5; }
 .wave-divider .wave-2 { animation: waveDrift 4.5s linear infinite reverse; opacity: 0.28; }
+/* CTA edge-blend: solid neighbor-color front wave = wavy silhouette that still animates */
+.cta-section .wave-divider .wave-solid { opacity: 1; }
 .wave-divider .wave-3 { animation: waveDrift 2.8s linear infinite; opacity: 0.14; }
 .wave-divider .wave-bob { animation: waveBob 7s ease-in-out infinite; }
 @keyframes waveDrift { from { transform: translateX(0); } to { transform: translateX(-50%); } }
