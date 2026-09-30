@@ -3,21 +3,29 @@ import { tinaField } from '@tinacms/astro/tina-field';
 import type { CmsConfig } from '../lib/tina/data';
 interface Props { config?: CmsConfig | null; pathname?: string; }
 const { config, pathname = '/' } = Astro.props as any;
-const nav = (config as any)?.nav ?? [
-  { title: 'Our systems', link: '#systems' },
-  { title: 'Water issues', link: '#issues' },
-  { title: 'Our story', link: '#story' },
-  { title: 'Resources', link: '#resources' },
-];
+  const nav = (config as any)?.nav ?? [
+    { title: 'Our systems', link: '#systems' },
+    { title: 'Water issues', link: '#issues' },
+    { title: 'Our story', link: '#story' },
+    { title: 'Resources', link: '#resources' },
+  ];
+  const header = (config as any)?.header ?? {};
+  const logo = header.logo ?? {};
+  const logoSrc = logo.src ?? '/images/logo.jpg';
+  const logoAlt = logo.alt ?? '';
+  const logoLink = header.logoLink ?? '#';
+  const logoHeight = header.logoHeight ?? '40px';
+  const ctaLabel = header.ctaLabel ?? 'Free water test';
+  const ctaLink = header.ctaLink ?? '#test';
 ---
 <header class="site-header">
   <div class="container header-wrap">
-    <a href="#" class="logo" data-tina-field={tinaField(config as any, 'seo')} aria-label="Energy One Water"><img src="/images/logo.jpg" alt="Energy One Water" width="240" height="65" style="height:40px; width:auto; display:block;" /></a>
+    <a href={logoLink} class="logo" data-tina-field={tinaField(header as any, 'logo')} aria-label={logoAlt}><img src={logoSrc} alt={logoAlt} width="240" height="65" style={`height:${logoHeight}; width:auto; display:block;`} data-tina-field={tinaField(logo as any, 'src')} /></a>
     <nav class="main-nav" aria-label="Primary" data-tina-field={tinaField(config as any, 'nav')}>
       {nav.map((item: any) => (
         <a href={item.link} class="nav-link" style={pathname===item.link ? 'color: var(--color-accent);' : ''}>{item.title}</a>
       ))}
     </nav>
-    <a href="#test" class="btn btn-primary" style="padding:10px 20px; font-size:0.9rem;" data-tina-field={tinaField(config as any, 'seo')}>Free water test</a>
+    <a href={ctaLink} class="btn btn-primary" style="padding:10px 20px; font-size:0.9rem;" data-tina-field={tinaField(header as any, 'ctaLabel')}>{ctaLabel}</a>
   </div>
 </header>

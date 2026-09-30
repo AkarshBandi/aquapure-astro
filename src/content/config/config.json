@@ -9,5 +9,32 @@
     { "title": "Our story", "link": "#story" },
     { "title": "Resources", "link": "#resources" }
   ],
-  "footerNote": "© 2026 Energy One Water. Family-owned Scottsdale. Custom 6-stage filtration."
+  "header": {
+    "logo": {
+      "src": "/images/logo.jpg",
+      "alt": "Energy One Water"
+    },
+    "logoLink": "#",
+    "logoHeight": "40px",
+    "ctaLabel": "Free water test",
+    "ctaLink": "#test"
+  },
+  "footer": {
+    "links": [
+      { "title": "Home", "link": "#" },
+      { "title": "About Us", "link": "#story" },
+      { "title": "Our System", "link": "#systems" },
+      { "title": "FAQs", "link": "#" },
+      { "title": "Shop", "link": "#" },
+      { "title": "Contact Us", "link": "#test" }
+    ],
+    "copyright": "© 2026 Energy One Water. All rights reserved.",
+    "referencesLabel": "References:",
+    "references": [
+      { "title": "EPA", "link": "https://www.epa.gov/ground-water-and-drinking-water" },
+      { "title": "CDC", "link": "https://www.cdc.gov/healthywater/drinking/" },
+      { "title": "WHO", "link": "https://www.who.int/health-topics/drinking-water" },
+      { "title": "NSF", "link": "https://www.nsf.org/knowledge-library/topic/drinking-water-treatment" }
+    ]
+  }
 }

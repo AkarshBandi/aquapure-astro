@@ -27,11 +27,56 @@ export const GlobalCollection: Collection = {
         { name: 'link', label: 'Link', type: 'string', required: true },
       ],
     },
-    {
-      name: 'footerNote',
-      label: 'Footer note',
-      type: 'string',
-      ui: { component: 'textarea' },
-    },
-  ],
-};
+      {
+        name: 'header',
+        label: 'Header',
+        type: 'object',
+        fields: [
+          {
+            name: 'logo',
+            label: 'Logo',
+            type: 'object',
+            fields: [
+              { name: 'src', label: 'Logo image', type: 'image' },
+              { name: 'alt', label: 'Logo alt text', type: 'string' },
+            ],
+          },
+          { name: 'logoLink', label: 'Logo link', type: 'string' },
+          { name: 'logoHeight', label: 'Logo height (px)', type: 'string' },
+          { name: 'ctaLabel', label: 'CTA label', type: 'string' },
+          { name: 'ctaLink', label: 'CTA link', type: 'string' },
+        ],
+      },
+      {
+        name: 'footer',
+        label: 'Footer',
+        type: 'object',
+        fields: [
+          {
+            name: 'links',
+            label: 'Footer links',
+            type: 'object',
+            list: true,
+            ui: { itemProps: (item: { title?: string }) => ({ label: item?.title ?? 'Link' }) },
+            fields: [
+              { name: 'title', label: 'Title', type: 'string' },
+              { name: 'link', label: 'Link', type: 'string' },
+            ],
+          },
+          { name: 'copyright', label: 'Copyright line', type: 'string' },
+          { name: 'referencesLabel', label: 'References label', type: 'string' },
+          {
+            name: 'references',
+            label: 'Reference links',
+            type: 'object',
+            list: true,
+            ui: { itemProps: (item: { title?: string }) => ({ label: item?.title ?? 'Link' }) },
+            fields: [
+              { name: 'title', label: 'Title', type: 'string' },
+              { name: 'link', label: 'Link', type: 'string' },
+            ],
+          },
+        ],
+      },
+    ],
+  };

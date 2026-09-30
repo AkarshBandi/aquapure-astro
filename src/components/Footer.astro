@@ -1,17 +1,35 @@
 ---
-// no imports — pure static to match original live site proposition, no subscribe
+import { tinaField } from '@tinacms/astro/tina-field';
+import type { CmsConfig } from '../lib/tina/data';
+interface Props { config?: CmsConfig | null; }
+const { config } = Astro.props as any;
+const footer = (config as any)?.footer ?? null;
+const links = Array.isArray(footer?.links) ? footer.links : [];
+const copyright = footer?.copyright ?? '';
+const referencesLabel = footer?.referencesLabel ?? '';
+const references = Array.isArray(footer?.references) ? footer.references : [];
 ---
 <footer class="site-footer" style="position:relative; background: #F0F8FF; border-top: none; overflow:hidden;">
   <div class="container" style="text-align:center; padding-top: 32px; padding-bottom: 24px;">
-    <nav aria-label="Footer" style="display:flex; flex-wrap:wrap; justify-content:center; gap:8px 16px; font-size:0.92rem; color: var(--color-muted);">
-      <a href="#">Home</a><span style="opacity:0.3;">|</span>
-      <a href="#story">About Us</a><span style="opacity:0.3;">|</span>
-      <a href="#systems">Our System</a><span style="opacity:0.3;">|</span>
-      <a href="#">FAQs</a><span style="opacity:0.3;">|</span>
-      <a href="#">Shop</a><span style="opacity:0.3;">|</span>
-      <a href="#test">Contact Us</a>
+    <nav aria-label="Footer" style="display:flex; flex-wrap:wrap; justify-content:center; gap:8px 16px; font-size:0.92rem; color: var(--color-muted);" data-tina-field={tinaField(footer as any, 'links')}>
+      {links.map((l: any, i: number) => (
+        <>
+          {i > 0 && <span style="opacity:0.3;">|</span>}
+          <a href={l.link}>{l.title}</a>
+        </>
+      ))}
     </nav>
-    <div style="margin-top:16px; font-size:0.85rem; color: var(--color-muted);">© 2026 Energy One Water. All rights reserved.</div>
-    <div style="margin-top:10px; font-size:0.80rem; color: var(--color-muted);">References: <a href="https://www.epa.gov/ground-water-and-drinking-water" target="_blank" rel="noopener noreferrer external" style="color:var(--color-dark); text-decoration:underline;">EPA</a> • <a href="https://www.cdc.gov/healthywater/drinking/" target="_blank" rel="noopener noreferrer external" style="color:var(--color-dark); text-decoration:underline;">CDC</a> • <a href="https://www.who.int/health-topics/drinking-water" target="_blank" rel="noopener noreferrer external" style="color:var(--color-dark); text-decoration:underline;">WHO</a> • <a href="https://www.nsf.org/knowledge-library/topic/drinking-water-treatment" target="_blank" rel="noopener noreferrer external" style="color:var(--color-dark); text-decoration:underline;">NSF</a></div>
+    {copyright && <div style="margin-top:16px; font-size:0.85rem; color: var(--color-muted);" data-tina-field={tinaField(footer as any, 'copyright')}>{copyright}</div>}
+    {(referencesLabel || references.length > 0) && (
+      <div style="margin-top:10px; font-size:0.80rem; color: var(--color-muted);" data-tina-field={tinaField(footer as any, 'references')}>
+        {referencesLabel && <span data-tina-field={tinaField(footer as any, 'referencesLabel')}>{referencesLabel}</span>}
+        {references.map((r: any, i: number) => (
+          <>
+            {i > 0 && <span> • </span>}
+            <a href={r.link} target="_blank" rel="noopener noreferrer external" style="color:var(--color-dark); text-decoration:underline;">{r.title}</a>
+          </>
+        ))}
+      </div>
+    )}
   </div>
 </footer>
